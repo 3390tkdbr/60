@@ -1,0 +1,7 @@
+def get_top_coins():
+    response = requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=volume_desc&per_page=3&page=1&sparkline=false')
+    response_json = response.json()
+    for coin in response_json:
+        print(f"{coin['id']}: ${coin['current_price']}")
+
+get_top_coins()
